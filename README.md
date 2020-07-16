@@ -32,7 +32,6 @@ Se usaron principalmente para guardar los datos relevantes que necesite un perso
 |----------------|--------|-----------|-------------|-----|-----|
 
 ## Desarrollo.
-Cuando se empezo la fase de diseño se habia planteado crear todo desde cero, pero debido a la dificultades actuales por la pandemia y algunos de los integrantes se planteo usa el codigo de ejemplo de 
+Cuando se empezo la fase de diseño se habia planteado crear todo desde cero, pero debido a la dificultades actuales por la pandemia y algunos de los integrantes se planteo usa el codigo de ejemplo de **ML Kit Vision Showcase App with Material Design** el cual podriamos aplicar perfectamente para nuestro propio desarrollo.
 
-
-https://developers.google.com/ml-kit/vision/barcode-scanning/#example_results
+<center> <img src="https://github.com/googlesamples/mlkit/raw/master/android/material-showcase/screenshots/live_barcode.gif" width="256"/> </center>
