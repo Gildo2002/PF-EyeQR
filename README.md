@@ -41,14 +41,14 @@ Cuando se planteo la fase de diseño se habia planteado crear todo desde cero, p
 
 Por ejemplo podemos ver como funciona el reconocimiento de codigo de barra (tambien funciona igual con los codigos QR).
 <p align="center">
-  <img src="https://imgur.com/JTLcJ3a" width="256"/> 
+  <img src="https://github.com/googlesamples/mlkit/raw/master/android/material-showcase/screenshots/live_barcode.gif" width="256"/> 
 </p>
 
 Una vez tenemos la parte principal de la aplicacion debiamos pasar al vincular los codigos escaneados con informacion que le sea util. 
 Se procedio a utilizar **web scraping** para obtener datos que nos fueran de utilidad en esta etapa de prototipo. Al final lo alojamos en un archivo JSON que funciona como una base de datos para guardar la informacion de todos los productos. Claro esta que la base de datos no cuenta con todos los productos que tiene un supermercado pero bastante de ellos son comunes y nos permite hacer pruebas de funcionamiento y rendimiento.
 
 <p align="center">
-  <img src="https://i.imgur.com/JTLcJ3a.gifv" width="720"/>
+  <img src="https://i.imgur.com/JTLcJ3a.gif" width="720"/>
 </p>
 
 Cuando teniamos la base de datos y la aplicacion funcionado correctamente procedimos a metodo por el cual las personas con discapacidad visual recibirian la informacion. Concluimos rapidamente que la mejor opcion era a traves de audio, ya que se puede trasmitir mas rapido la informacion si acciones intermedias y como se estan usando smartphone no debe haber problemas. Toda la informacion es dada paso por paso, siempre en un determinado orden.
