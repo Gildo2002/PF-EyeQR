@@ -2,7 +2,7 @@
  * Copyright 2019 Google LLC
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
- * you may not use this file except in compliance with the License.
+ * you may not use this file.json except in compliance with the License.
  * You may obtain a copy of the License at
  *
  *     https://www.apache.org/licenses/LICENSE-2.0
@@ -247,7 +247,7 @@ public class Utils {
         exif = new ExifInterface(inputStream);
       }
     } catch (IOException e) {
-      Log.e(TAG, "Failed to open file to read rotation meta data: " + imageUri, e);
+      Log.e(TAG, "Failed to open file.json to read rotation meta data: " + imageUri, e);
     }
 
     return exif !=  null

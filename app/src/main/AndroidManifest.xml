@@ -22,37 +22,13 @@
         android:value="@integer/google_play_services_version"/>
 
     <activity
-        android:name=".EntryChoiceActivity"
-        android:exported="true"
+        android:name=".java.LiveBarcodeScanningActivity"
+        android:exported="false"
         android:screenOrientation="portrait">
       <intent-filter>
         <action android:name="android.intent.action.MAIN"/>
         <category android:name="android.intent.category.LAUNCHER"/>
       </intent-filter>
-    </activity>
-
-    <activity
-        android:name=".java.MainActivity"
-        android:exported="false"
-        android:screenOrientation="portrait">
-    </activity>
-
-    <activity
-        android:name=".java.LiveObjectDetectionActivity"
-        android:exported="false"
-        android:screenOrientation="portrait">
-    </activity>
-
-    <activity
-        android:name=".java.LiveBarcodeScanningActivity"
-        android:exported="false"
-        android:screenOrientation="portrait">
-    </activity>
-
-    <activity
-        android:name=".java.StaticObjectDetectionActivity"
-        android:exported="false"
-        android:screenOrientation="portrait">
     </activity>
 
     <activity

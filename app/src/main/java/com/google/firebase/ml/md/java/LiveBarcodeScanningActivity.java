@@ -2,7 +2,7 @@
  * Copyright 2019 Google LLC
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
- * you may not use this file except in compliance with the License.
+ * you may not use this file.json except in compliance with the License.
  * You may obtain a copy of the License at
  *
  *     https://www.apache.org/licenses/LICENSE-2.0
@@ -21,6 +21,7 @@ import android.animation.AnimatorSet;
 import android.content.Intent;
 import android.hardware.Camera;
 import android.os.Bundle;
+import android.speech.tts.TextToSpeech;
 import android.util.Log;
 import android.view.View;
 import android.view.View.OnClickListener;
@@ -38,8 +39,13 @@ import com.google.firebase.ml.md.java.barcodedetection.BarcodeResultFragment;
 import com.google.firebase.ml.md.java.camera.CameraSource;
 import com.google.firebase.ml.md.java.camera.CameraSourcePreview;
 import com.google.firebase.ml.md.java.settings.SettingsActivity;
+
+import org.json.JSONObject;
+
 import java.io.IOException;
+import java.io.InputStream;
 import java.util.ArrayList;
+import java.util.Locale;
 
 /** Demonstrates the barcode scanning workflow using camera preview. */
 public class LiveBarcodeScanningActivity extends AppCompatActivity implements OnClickListener {
@@ -55,6 +61,7 @@ public class LiveBarcodeScanningActivity extends AppCompatActivity implements On
   private AnimatorSet promptChipAnimator;
   private WorkflowModel workflowModel;
   private WorkflowState currentWorkflowState;
+  private TextToSpeech textToSpeech;
 
   @Override
   protected void onCreate(Bundle savedInstanceState) {
@@ -71,11 +78,22 @@ public class LiveBarcodeScanningActivity extends AppCompatActivity implements On
         (AnimatorSet) AnimatorInflater.loadAnimator(this, R.animator.bottom_prompt_chip_enter);
     promptChipAnimator.setTarget(promptChip);
 
+    textToSpeech = new TextToSpeech(getApplicationContext(), new TextToSpeech.OnInitListener() {
+        @Override
+        public void onInit(int i) {
+            if (i != TextToSpeech.ERROR) {
+                textToSpeech.setLanguage(Locale.getDefault());
+                textToSpeech.speak(getString(R.string.msg_Welcome),textToSpeech.QUEUE_FLUSH,null);
+            }
+            }
+        });
+
     findViewById(R.id.close_button).setOnClickListener(this);
     flashButton = findViewById(R.id.flash_button);
     flashButton.setOnClickListener(this);
     settingsButton = findViewById(R.id.settings_button);
     settingsButton.setOnClickListener(this);
+    settingsButton.setVisibility(View.INVISIBLE);
 
     setUpWorkflowModel();
   }
@@ -89,12 +107,14 @@ public class LiveBarcodeScanningActivity extends AppCompatActivity implements On
     currentWorkflowState = WorkflowState.NOT_STARTED;
     cameraSource.setFrameProcessor(new BarcodeProcessor(graphicOverlay, workflowModel));
     workflowModel.setWorkflowState(WorkflowState.DETECTING);
+
   }
 
   @Override
   protected void onPostResume() {
     super.onPostResume();
     BarcodeResultFragment.dismiss(getSupportFragmentManager());
+
   }
 
   @Override
@@ -140,6 +160,7 @@ public class LiveBarcodeScanningActivity extends AppCompatActivity implements On
       try {
         workflowModel.markCameraLive();
         preview.start(cameraSource);
+        textToSpeech.stop();
       } catch (IOException e) {
         Log.e(TAG, "Failed to start camera preview!", e);
         cameraSource.release();
@@ -154,6 +175,23 @@ public class LiveBarcodeScanningActivity extends AppCompatActivity implements On
       flashButton.setSelected(false);
       preview.stop();
     }
+  }
+
+  private void toSpeech(String rawValue) {
+      try {
+
+          ArrayList<String> array = getProducto("file.json", rawValue);
+
+          if (array.get(0) != "-1") {
+              textToSpeech.speak("Nombre:       " + array.get(1), TextToSpeech.QUEUE_ADD, null);
+              textToSpeech.speak("Precio:       " + array.get(2), TextToSpeech.QUEUE_ADD, null);
+              textToSpeech.speak("Categoria:    " + array.get(3), TextToSpeech.QUEUE_ADD, null);
+              textToSpeech.speak("Departamento: " + array.get(4), TextToSpeech.QUEUE_ADD, null);
+          } else
+              textToSpeech.speak("No se encuentra registrado.", TextToSpeech.QUEUE_ADD, null);
+      }catch (Exception e){
+          Log.e("myError",e.toString());
+      }
   }
 
   private void setUpWorkflowModel() {
@@ -213,7 +251,53 @@ public class LiveBarcodeScanningActivity extends AppCompatActivity implements On
             ArrayList<BarcodeField> barcodeFieldList = new ArrayList<>();
             barcodeFieldList.add(new BarcodeField("Raw Value", barcode.getRawValue()));
             BarcodeResultFragment.show(getSupportFragmentManager(), barcodeFieldList);
+            toSpeech(barcode.getRawValue());
           }
         });
   }
+
+    public ArrayList getProducto(String archivo, String code) throws Exception {
+        int i = -1;
+        JSONObject json;
+        String jsonString = AssetJSON(this.getAssets().open(archivo));
+        json = new JSONObject(jsonString);
+
+        ArrayList<String> array = new ArrayList<String>();
+
+
+        for(int index = 0; index < json.getJSONArray("sku").length(); index++) {
+            if (code.equals(json.getJSONArray("sku").getString(index))){
+                i = index;
+                break;
+            }
+        }
+
+        String nombre = json.getJSONArray("nombre").getString(i);
+        String precio = json.getJSONArray("precio").getString(i);
+        String categoria = json.getJSONArray("categoria").getString(i);
+        String departamento = json.getJSONArray("departamento").getString(i);
+        String sku = json.getJSONArray("sku").getString(i);
+        String link = json.getJSONArray("link").getString(i);
+
+        array.add(String.valueOf(i));
+        array.add(nombre);
+        array.add(precio);
+        array.add(categoria);
+        array.add(departamento);
+        array.add(sku);
+        array.add(link);
+        return array;
+    }
+
+    public String AssetJSON(InputStream inputStream) {
+        try {
+            byte[] bytes = new byte[inputStream.available()];
+            inputStream.read(bytes, 0, bytes.length);
+            String json = new String(bytes);
+            return json;
+        } catch (IOException e) {
+            Log.i("MyError",e.toString());
+            return null;
+        }
+    }
 }
