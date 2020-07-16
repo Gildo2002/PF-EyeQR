@@ -35,8 +35,20 @@ Se usaron principalmente para guardar los datos relevantes que necesite un perso
 |----------------|--------|-----------|-------------|-----|-----|
 
 ## Desarrollo.
-Cuando se empezo la fase de diseño se habia planteado crear todo desde cero, pero debido a la dificultades actuales por la pandemia y algunos de los integrantes se planteo usa el codigo de ejemplo de **ML Kit Vision Showcase App with Material Design** el cual podriamos aplicar perfectamente para nuestro propio desarrollo.
+Para este proyecto se contaba con un aplicacion prototipo que a pesar de cumplir con el objetivo principal de *identificar objetos y brindar la informacion a los usuarios* fue desarrollado cuando no se tenia una buena base de programacion y la motivacion era baja. Por lo tanto se desecho la idea de reutilizar la aplicacion prototipo.
 
+Cuando se planteo la fase de diseño se habia planteado crear todo desde cero, pero debido a la dificultades actuales por la pandemia y algunos de los integrantes se planteo usa el codigo de ejemplo de **ML Kit Vision Showcase App with Material Design** el cual podriamos aplicar perfectamente para nuestro propio desarrollo.
+
+Por ejemplo podemos ver como funciona el reconocimiento de codigo de barra (tambien funciona igual con los codigos QR).
 <p align="center">
   <img src="https://github.com/googlesamples/mlkit/raw/master/android/material-showcase/screenshots/live_barcode.gif" width="256"/> 
 </p>
+
+Una vez tenemos la parte principal de la aplicacion debiamos pasar al vincular los codigos escaneados con informacion que le sea util. 
+Se procedio a utilizar ---- para obtener datos que nos fueran de utilidad en esta etapa de prototipo. Al final lo alojamos en un archivo JSON que funciona como una base de datos para guardar la informacion de todos los productos. Claro esta que la base de datos no cuenta con todos los productos que tiene un supermercado pero bastante de ellos son comunes y nos permite hacer pruebas de funcionamiento y rendimiento.
+
+[Imgur](https://i.imgur.com/JTLcJ3a.gifv)
+
+Cuando teniamos la base 
+
+
