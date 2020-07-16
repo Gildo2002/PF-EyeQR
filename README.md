@@ -11,7 +11,10 @@ Con la API de escaneo de códigos de barras de ML Kit, puede leer datos codifica
 
 Los códigos de barras son una forma conveniente de pasar información del mundo real a su aplicación. En particular, cuando se utilizan formatos 2D como el código QR, puede codificar datos estructurados como información de contacto o credenciales de red WiFi. Debido a que ML Kit puede reconocer y analizar automáticamente estos datos, su aplicación puede responder de manera inteligente cuando un usuario escanea un código de barras.
 
-<img src="https://i.imgur.com/4e4csFD.png" width="720"/>
+<p align="center">
+  <img src="https://i.imgur.com/4e4csFD.png" width="720"/>
+</p>
+
 
 Entrando en detalles mas tecnicos podemos mencionar:
 - Detección de código de barras
@@ -34,4 +37,6 @@ Se usaron principalmente para guardar los datos relevantes que necesite un perso
 ## Desarrollo.
 Cuando se empezo la fase de diseño se habia planteado crear todo desde cero, pero debido a la dificultades actuales por la pandemia y algunos de los integrantes se planteo usa el codigo de ejemplo de **ML Kit Vision Showcase App with Material Design** el cual podriamos aplicar perfectamente para nuestro propio desarrollo.
 
-<center> <img src="https://github.com/googlesamples/mlkit/raw/master/android/material-showcase/screenshots/live_barcode.gif" width="256"/> </center>
+<p align="center">
+  <img src="https://github.com/googlesamples/mlkit/raw/master/android/material-showcase/screenshots/live_barcode.gif" width="256"/> 
+</p>
