@@ -45,10 +45,22 @@ Por ejemplo podemos ver como funciona el reconocimiento de codigo de barra (tamb
 </p>
 
 Una vez tenemos la parte principal de la aplicacion debiamos pasar al vincular los codigos escaneados con informacion que le sea util. 
-Se procedio a utilizar ---- para obtener datos que nos fueran de utilidad en esta etapa de prototipo. Al final lo alojamos en un archivo JSON que funciona como una base de datos para guardar la informacion de todos los productos. Claro esta que la base de datos no cuenta con todos los productos que tiene un supermercado pero bastante de ellos son comunes y nos permite hacer pruebas de funcionamiento y rendimiento.
+Se procedio a utilizar **web scraping** para obtener datos que nos fueran de utilidad en esta etapa de prototipo. Al final lo alojamos en un archivo JSON que funciona como una base de datos para guardar la informacion de todos los productos. Claro esta que la base de datos no cuenta con todos los productos que tiene un supermercado pero bastante de ellos son comunes y nos permite hacer pruebas de funcionamiento y rendimiento.
 
-[Imgur](https://i.imgur.com/JTLcJ3a.gifv)
+<p align="center">
+  <img src="https://i.imgur.com/JTLcJ3a.gifv" width="720"/>
+</p>
 
-Cuando teniamos la base 
+Cuando teniamos la base de datos y la aplicacion funcionado correctamente procedimos a metodo por el cual las personas con discapacidad visual recibirian la informacion. Concluimos rapidamente que la mejor opcion era a traves de audio, ya que se puede trasmitir mas rapido la informacion si acciones intermedias y como se estan usando smartphone no debe haber problemas. Toda la informacion es dada paso por paso, siempre en un determinado orden.
+
+Cuando se da el caso de que no se encuentra informacion de las personas, la aplicacion procede a comunicar que no hay informacion del producto buscado.
+
+##Pruebas.
+Por dificultades actuales, no pudimos poner a prueba el prototipo con nuestro poblacion objetivo. Por lo tanto se llevo a cabo simulacro donde se privaba de su vision a persona para que interactuan con la aplicacion y los productos. Claro esta que las personas con discapacidad visual cuenta con mas destresas a la hora de llevar a cabo estas tareas, sin embargo un mejor entendimiento de lo que es un codigo de barra y donde se ubican compesa a las personas del simulacro.
+
+Los resultados obtenidos fueron:
+- Las personas pudieron hacer que la camara de la aplicacion apuntara al codigo de barra.
+- La aplicacion dio la informacion claro y no hubo interferencia.
+- La persona tenian problemas con producto de envases plasticos o cartuchos, los cuales para el escaner el muy dificil de procesar.
 
 
