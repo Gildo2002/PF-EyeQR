@@ -27,7 +27,12 @@ Sintetiza la voz del texto para su reproducción inmediata o para crear un archi
 JSON (JavaScript Object Notation - Notación de Objetos de JavaScript) es un formato ligero de intercambio de datos. Leerlo y escribirlo es simple para humanos, mientras que para las máquinas es simple interpretarlo y generarlo. JSON es un formato de texto que es completamente independiente del lenguaje pero utiliza convenciones que son ampliamente conocidos por los programadores de la familia de Java. Estas propiedades hacen que JSON sea un lenguaje ideal para el intercambio de datos.
 
 Se usaron principalmente para guardar los datos relevantes que necesite un persona a la hora de elegir un productos. Tales parametros son:
-|Nombre |Precio |Categoria |Departamentos |SKU  |Link |
+
+|NOMBRE          |PRECIO  |CATEGORIA  |DEPARTAMENTO |SKU  |LINK |
+|----------------|--------|-----------|-------------|-----|-----|
+
+## Desarrollo.
+Cuando se empezo la fase de diseño se habia planteado crear todo desde cero, pero debido a la dificultades actuales por la pandemia y algunos de los integrantes se planteo usa el codigo de ejemplo de 
 
 
 https://developers.google.com/ml-kit/vision/barcode-scanning/#example_results
