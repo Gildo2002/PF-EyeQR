@@ -41,7 +41,7 @@ Cuando se planteo la fase de diseño se habia planteado crear todo desde cero, p
 
 Por ejemplo podemos ver como funciona el reconocimiento de codigo de barra (tambien funciona igual con los codigos QR).
 <p align="center">
-  <img src="https://github.com/googlesamples/mlkit/raw/master/android/material-showcase/screenshots/live_barcode.gif" width="256"/> 
+  <img src="https://imgur.com/JTLcJ3a" width="256"/> 
 </p>
 
 Una vez tenemos la parte principal de la aplicacion debiamos pasar al vincular los codigos escaneados con informacion que le sea util. 
